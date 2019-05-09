@@ -4,9 +4,11 @@ import (
 	"github.com/Balonbal/usb-monitor-websocket/handlers"
 	"net/http"
 	"github.com/google/gousb"
+	"flag"
 )
 
 func main() {
+	flag.Parse()
 	usbCtx := gousb.NewContext()
 	usbCh := make(chan interface{})
 	clientCh := handlers.InitBroadcaster(usbCh)
